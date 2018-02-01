@@ -4,7 +4,7 @@ class EntitiesController < ApplicationController
   # GET /entities
   # GET /entities.json
   def index
-    @entities = Entity.all
+    @entities = Entity.all.order(:name)
   end
 
   # GET /entities/1
@@ -69,6 +69,6 @@ class EntitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entity_params
-      params.require(:entity).permit(:name, :description, :entity_id)
+      params.require(:entity).permit(:name, :description, :entity_id, :entity_ids => [])
     end
 end

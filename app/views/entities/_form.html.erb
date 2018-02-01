@@ -19,9 +19,9 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :entity_id %><br>
-    <%= f.text_field :entity_id %>
+  <div>
+    <%= f.label :entities %><br>
+    <%=collection_check_boxes(:entity, :entity_ids, Entity.all, :id, :name, include_hidden: false) %>
   </div>
   <div class="actions">
     <%= f.submit %>
